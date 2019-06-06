@@ -108,7 +108,6 @@ jhipster:
         enabled: false
         update-interval: 3
         url:
-      config:
 
   security:
     authentication:
