@@ -17,15 +17,10 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-  - name: app
+  - name: http
     port: {{ .Values.service.extAppPort }}
     targetPort: {{ .Values.service.appPort }}
     protocol: TCP
-  - name: admin
-    port: {{ .Values.service.extAdminPort }}
-    targetPort: {{ .Values.service.adminPort }}
-    protocol: TCP
-    name: http
   selector:
     app: {{ template "fullname" . }}
 {{- end }}

@@ -30,11 +30,10 @@ spec:
 {{- end }}
         ports:
         - containerPort: {{ .Values.service.appPort }}
-        - containerPort: {{ .Values.service.adminPort }}
         livenessProbe:
           httpGet:
             path: {{ .Values.probePath }}
-            port: {{ .Values.service.adminPort }}
+            port: {{ .Values.service.appPort }}
           initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
           periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
           successThreshold: {{ .Values.livenessProbe.successThreshold }}
@@ -42,7 +41,7 @@ spec:
         readinessProbe:
           httpGet:
             path: {{ .Values.probePath }}
-            port: {{ .Values.service.adminPort }}
+            port: {{ .Values.service.appPort }}
           initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
           periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
           successThreshold: {{ .Values.readinessProbe.successThreshold }}
