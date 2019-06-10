@@ -8,7 +8,8 @@ spring:
         name: ${SPRING_CLOUD_KUBERNETES_CONFIG_NAME:jhipstersample}-config
       reload:
         enabled: true
-        strategy: restart_context
+        mode: polling
+        period: 5000
 logging:
   level:
     root: INFO
