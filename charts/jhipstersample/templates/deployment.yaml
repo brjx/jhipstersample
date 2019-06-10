@@ -29,6 +29,7 @@ spec:
           value: {{ $pval }}
 {{- end }}
         ports:
+        - containerPort: 5701
         - containerPort: {{ .Values.service.appPort }}
         livenessProbe:
           httpGet:
