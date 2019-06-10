@@ -14,5 +14,5 @@ spring:
 logging:
   level:
     root: INFO
-    org.springframework.cloud.kubernetes: DEBUG
-    org.springframework.boot.actuate: DEBUG
+    org.springframework.cloud: DEBUG
+    org.springframework.boot: DEBUG
