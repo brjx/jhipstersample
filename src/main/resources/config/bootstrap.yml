@@ -9,3 +9,8 @@ spring:
       reload:
         enabled: true
         strategy: restart_context
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.kubernetes: DEBUG
+    org.springframework.boot.actuate: DEBUG
