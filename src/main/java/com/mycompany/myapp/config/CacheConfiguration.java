@@ -66,8 +66,8 @@ public class CacheConfiguration implements DisposableBean {
             
             config.getNetworkConfig().getJoin().getAwsConfig().setEnabled(false);
             config.getNetworkConfig().getJoin().getMulticastConfig().setEnabled(false);
-            config.getNetworkConfig().getJoin().getKubernetesConfig().setEnabled(true);
-            config.getNetworkConfig().getJoin().getKubernetesConfig().setServiceDns("jhshazelcast");
+            config.getNetworkConfig().getJoin().getKubernetesConfig().setEnabled(true)
+                .setProperty("service-dns", "jhshazelcast");
         }
         config.getMapConfigs().put("default", initializeDefaultMapConfig(jHipsterProperties));
 
