@@ -62,6 +62,14 @@ public class CacheConfiguration implements DisposableBean {
             config.getNetworkConfig().getJoin().getMulticastConfig().setEnabled(false);
             config.getNetworkConfig().getJoin().getTcpIpConfig().setEnabled(false);
         }
+        if (env.acceptsProfiles(Profiles.of(JHipsterConstants.SPRING_PROFILE_PRODUCTION))) {
+            System.setProperty("hazelcast.local.localAddress", "127.0.0.1");
+
+            config.getNetworkConfig().getJoin().getAwsConfig().setEnabled(false);
+            config.getNetworkConfig().getJoin().getMulticastConfig().setEnabled(false);
+            config.getNetworkConfig().getJoin().getKubernetesConfig().setEnabled(true);
+            config.getNetworkConfig().getJoin().getKubernetesConfig().setServiceDns("jhshazelcast");
+        }
         config.getMapConfigs().put("default", initializeDefaultMapConfig(jHipsterProperties));
 
         // Full reference is available at: http://docs.hazelcast.org/docs/management-center/3.9/manual/html/Deploying_and_Starting.html
