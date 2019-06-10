@@ -1,0 +1,21 @@
+{{- if .Values.knativeDeploy }}
+{{- else }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: jhshazelcast
+  labels:
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+{{- if .Values.service.annotations }}
+  annotations:
+{{ toYaml .Values.service.annotations | indent 4 }}
+{{- end }}
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+  - name: hazelcast
+    port: 5701
+  selector:
+    app: {{ template "fullname" . }}
+{{- end }}
