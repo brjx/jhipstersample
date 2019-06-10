@@ -4,7 +4,7 @@ spring:
   cloud:
     kubernetes:
       config:
-        name: ${SPRING_CLOUD_KUBERNETES_CONFIG_NAME:jhipstersample-config}
+        name: ${SPRING_CLOUD_KUBERNETES_CONFIG_NAME:jhipstersample}-config
       reload:
         enabled: true
         strategy: restart_context
