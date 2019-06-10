@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: ${SPRING_APPLICATION_NAME:jhipstersample}
+  cloud:
+    kubernetes:
+      config:
+        name: ${SPRING_CLOUD_KUBERNETES_CONFIG_NAME:jhipstersample-config}
+      reload:
+        enabled: true
+        strategy: restart_context
