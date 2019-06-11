@@ -10,7 +10,6 @@ image:
 # define environment variables here as a map of key: value
 env:
   _JAVA_OPTIONS: "-Xmx512m -Xms256m"
-  SPRING_PROFILES_ACTIVE: "prod,swagger"
   SPRING_DATASOURCE_URL: "jdbc:postgresql://10.62.176.3:5432/simpleapp_staging"
   SPRING_DATASOURCE_USERNAME: "simpleapp-staging"
   SPRING_DATASOURCE_PASSWORD: "simpleapp-staging"
