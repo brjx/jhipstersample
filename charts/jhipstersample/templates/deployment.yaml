@@ -24,6 +24,8 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
+        - name: SPRING_APPLICATION_NAME
+          value: {{ template "fullname" . }}
 {{- range $pkey, $pval := .Values.env }}
         - name: {{ $pkey }}
           value: {{ $pval }}
@@ -49,4 +51,5 @@ spec:
         resources:
 {{ toYaml .Values.resources | indent 12 }}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
+      serviceAccountName: {{ .Chart.Name }}
 {{- end }}

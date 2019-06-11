@@ -1,0 +1,20 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ template "fullname" . }}-config 
+data:
+  application-kubernetes.yml: |-
+    logging:
+      level:
+        root: INFO
+        org.springframework.cloud: DEBUG
+        org.springframework.boot: DEBUG
+  management:
+    endpoint:
+      restart:
+        enabled: true
+    endpoints:
+      web:
+        exposure:
+          include: ['configprops', 'env', 'health', 'info', 'jhimetrics', 'logfile', 'loggers', 'prometheus', 'threaddump', 'restart']
+

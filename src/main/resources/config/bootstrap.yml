@@ -1,0 +1,18 @@
+debug: true
+spring:
+  application:
+    name: ${SPRING_APPLICATION_NAME:jhipstersample}
+  cloud:
+    kubernetes:
+      config:
+        enabled: true
+        name: ${SPRING_CLOUD_KUBERNETES_CONFIG_NAME:jhipstersample}-config
+      reload:
+        enabled: true
+        mode: polling
+        period: 5000
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud: DEBUG
+    org.springframework.boot: DEBUG
