@@ -25,6 +25,7 @@ management:
       show-details: when-authorized
     jhimetrics:
       enabled: true
+
   info:
     git:
       mode: full
