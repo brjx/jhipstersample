@@ -9,6 +9,4 @@ data:
         root: INFO
         org.springframework.cloud: DEBUG
         org.springframework.boot: DEBUG
-    spring:
-      profiles:
-        active: prod,swagger
+
