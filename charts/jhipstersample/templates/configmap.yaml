@@ -16,5 +16,5 @@ data:
     endpoints:
       web:
         exposure:
-          include: configprops,prometheus,health,info,restart,metrics
+          include: ['configprops', 'env', 'health', 'info', 'jhimetrics', 'logfile', 'loggers', 'prometheus', 'threaddump', 'restart']
 
